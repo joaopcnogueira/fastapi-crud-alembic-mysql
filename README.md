@@ -6,7 +6,7 @@ Go to https://www.python.org/downloads/release/python-396/
 ```
 python -m venv venv
 ./venv/Scripts/activate.bat
-pip install fastapi uvicorn sqlalchemy alembic fastapi_sqlalchemy pymysql
+pip install fastapi uvicorn sqlalchemy alembic fastapi_sqlalchemy pymysql python-dotenv
 ```
 
 # Initiate the Alembic Folder
