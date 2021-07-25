@@ -81,7 +81,7 @@ alembic revision --autogenerate -m "first revision"
 alembic upgrade head
 ```
 
-Now, if you open the database `sqlite.db`, you should see the created database with the empty tables `users` and `items`.
+Now, if you open the database, you should see the created database with the empty tables `users` and `items`.
 
 
 # CRUD Operations
