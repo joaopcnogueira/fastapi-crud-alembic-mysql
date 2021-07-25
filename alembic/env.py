@@ -29,13 +29,13 @@ target_metadata = models.Base.metadata
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
+
+# loading environement variables from .env file on the project root folder
 from dotenv import load_dotenv
 load_dotenv(os.path.join(BASE_DIR, ".env"))
 
 # overwrite the sqlalchemy.url variable in alembic.ini file
 config.set_main_option("sqlalchemy.url", os.environ["SQLALCHEMY_DATABASE_URI"])
-
-
 
 
 def run_migrations_offline():
