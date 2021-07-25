@@ -10,8 +10,8 @@ pip install fastapi uvicorn sqlalchemy alembic fastapi_sqlalchemy pymysql python
 ```
 
 # Initiate the Alembic Folder
-```
-$ alembic init alembic
+```bash
+alembic init alembic
 ```
 # Bind the Database to Alembic
 
@@ -29,7 +29,7 @@ Note: we should have mysql up and running in your machine with a root user with 
 
 Create a file `sql_app/models.py` inside your project folder and put the following content inside it:
 
-```{python}
+```python
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
@@ -61,7 +61,7 @@ This is to let alembic knows which models to use to create the migrations.
 
 At the `alembic/env.py` file, right after the line 19, add the following lines of code:
 
-```
+```python
 import os, sys
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
