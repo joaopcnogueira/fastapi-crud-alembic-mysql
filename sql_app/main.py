@@ -7,6 +7,9 @@ from fastapi_sqlalchemy import DBSessionMiddleware
 app = FastAPI()
 app.add_middleware(DBSessionMiddleware, db_url='mysql+pymysql://root@localhost/fastapi_db')
 
+@app.get("/")
+def root():
+    return {"message": "Welcome to the CRUD application with FastAPI, SQLAlchemy, Alembic and MySQL"}
 
 @app.post("/users/", response_model=schemas.User)
 def create_user(user: schemas.UserCreate):

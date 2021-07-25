@@ -6,7 +6,7 @@ Go to https://www.python.org/downloads/release/python-396/
 ```
 python -m venv venv
 ./venv/Scripts/activate.bat
-pip install fastapi uvicorn sqlalchemy alembic fastapi_sqlalchemy pymysql
+pip install fastapi uvicorn sqlalchemy alembic fastapi_sqlalchemy pymysql python-dotenv
 ```
 
 # Initiate the Alembic Folder
@@ -17,10 +17,10 @@ $ alembic init alembic
 
 He we are using a mysql database. First, create a mysql database called `fastapi_db` with Charset `utf8mb4` and Collation `utf8mb4_general_ci`. 
 
-Edit the variable `sqlalchemy.url` in the `alembic.ini` file:
+Set the variable `SQLALCHEMY_DATABASE_URI` from the `.env` file as:
 
 ```
-sqlalchemy.url = mysql+pymysql://root@localhost/fastapi_db
+SQLALCHEMY_DATABASE_URI=mysql+pymysql://root@localhost/fastapi_db
 ```
 
 Note: we should have mysql up and running in your machine with a root user with a blank password.
