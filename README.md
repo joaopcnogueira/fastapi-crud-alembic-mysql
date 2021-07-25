@@ -1,4 +1,8 @@
-# Preparing the Environment
+# Install Python 3.9.6
+
+Go to https://www.python.org/downloads/release/python-396/
+
+# Setup up the Environment
 ```
 python -m venv venv
 ./venv/Scripts/activate.bat
@@ -11,7 +15,7 @@ $ alembic init alembic
 ```
 # Bind the Database to Alembic
 
-He we are using a mysql database. First, create a mysql database called `fastapi_db` with Charset `utf8mb4` and Collation `utf8mb4_general_ci`.
+He we are using a mysql database. First, create a mysql database called `fastapi_db` with Charset `utf8mb4` and Collation `utf8mb4_general_ci`. 
 
 Edit the variable `sqlalchemy.url` in the `alembic.ini` file:
 
@@ -19,6 +23,7 @@ Edit the variable `sqlalchemy.url` in the `alembic.ini` file:
 sqlalchemy.url = mysql+pymysql://root@localhost/fastapi_db
 ```
 
+Note: we should have mysql up and running in your machine with a root user with a blank password.
 
 # Create the Models
 
