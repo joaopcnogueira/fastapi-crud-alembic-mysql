@@ -1,11 +1,17 @@
 from typing import List
 from fastapi import FastAPI, HTTPException
 
+import os
+from dotenv import load_dotenv
+
 from . import crud, schemas
 from fastapi_sqlalchemy import DBSessionMiddleware
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+load_dotenv(os.path.join(BASE_DIR, ".env"))
+
 app = FastAPI()
-app.add_middleware(DBSessionMiddleware, db_url='mysql+pymysql://root@localhost/fastapi_db')
+app.add_middleware(DBSessionMiddleware, db_url=os.environ["SQLALCHEMY_DATABASE_URI"])
 
 @app.get("/")
 def root():
