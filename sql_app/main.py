@@ -11,7 +11,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 load_dotenv(os.path.join(BASE_DIR, ".env"))
 
 app = FastAPI()
-app.add_middleware(DBSessionMiddleware, db_url=os.environ["SQLALCHEMY_DATABASE_URI"])
+app.add_middleware(
+    DBSessionMiddleware, 
+    db_url=os.environ["SQLALCHEMY_DATABASE_URI"],
+    engine_args={"connect_args":{"check_same_thread": False}}
+)
 
 @app.get("/")
 def root():
